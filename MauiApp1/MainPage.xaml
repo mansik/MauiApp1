@@ -10,8 +10,8 @@
           ColumnSpacing="10">
 
         <Image Grid.ColumnSpan="2"
-               Source="dotnet_bot.png"
-               BackgroundColor="Orange"/> <!-- default Row, Column of Grid = 0, 0 -->
+               Source="logo.png"
+               BackgroundColor="Transparent"/> <!-- default Row, Column of Grid = 0, 0 -->
 
 
         <Entry Grid.Row="1"
@@ -32,12 +32,20 @@
             </CollectionView.ItemsSource>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="0, 5"> <!--<Thickness ...>left&right,top&bottom</Thickness>-->
-                        <Frame>
-                            <Label Text="{Binding .}"
-                                   FontSize="24"/>
-                        </Frame>                        
-                    </Grid>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="0, 5"> <!--<Thickness ...>left&right,top&bottom</Thickness>-->
+                            <Frame>
+                                <Label Text="{Binding .}" 
+                                       FontSize="24"/><!-- "." is self -->
+                            </Frame>                        
+                        </Grid>                        
+                    </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
